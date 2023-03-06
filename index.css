@@ -1,12 +1,12 @@
-.container1 {
-    display: grid;
-    grid-template-columns: repeat(8, 3vw);
-    grid-template-rows: repeat(8, 3vw);
-    justify-content: center;
+.container {
+    /* display: grid; */
+    /* grid-template-columns: repeat(nmber, 3vw);
+    grid-template-rows: repeat(8, 3vw); */
+    /* justify-content: center;
     align-items: center;
-    margin-left: -1rem;
+    margin-left: -1rem; */
 }
-.container1 div
+.container div
 {
     border: 2px solid;
     height: -webkit-fill-available;
