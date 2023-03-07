@@ -1,24 +1,50 @@
-const row = document.getElementById("grid-row");
-const col = document.getElementById("grid-col");
-const cgrid = document.getElementById("creategrid-btn");
-const con1 = document.querySelector("container");
+let gridrow = document.getElementById("grid-row");
+let gridcol = document.getElementById("grid-col");
+let creategridbtn = document.getElementById("creategrid-btn");
+let container = document.querySelector(".container");
+let table = document.getElementById("table");
+let hide = document.getElementById("hide");
+let show = document.getElementById("show");
+let reset = document.getElementById("reset");
+let color = document.getElementById("color");
 
 function Creategrid()
 {
-    let count=0;
-    // con1.innerHTML=" ";
-    console.log("row");
-    for(let i=0; i<= row.value;i++)
+    Hide();
+    container.innerHTML=" ";
+    for(let i = 0;i < gridrow.value; i ++)
     {
-        count += 2;
-        let row = document.createElement("div");
-        row.classList.add("row");
-        for(let j=0; j<= col.value;j++)
-        {
-            count += 2;
-            let col = document.createElement("div");
-            col.classList.add("col");
-        }
-    }
+        let tr = table.insertRow(i);
 
+        for(j = 0; j < gridcol.value; j++ )
+        {
+            let td = tr.insertCell(j);
+            td.classList.add("tablecell");
+        }
+        container.appendChild(table);
+    }
+    
+}
+
+function Show()
+{
+    show.style.display = "block";
+    reset.style.display = "block";
+    color.style.display = "block";
+}
+function Hide()
+{
+    if(gridrow.value == "")
+    {
+        alert("Please Enter size if row");
+    }
+    else if(gridcol.value == "")
+    {
+        alert("Please Enter size if column");
+    } 
+    else
+    {
+        hide.style.display = "none";
+        Show();
+    }
 }

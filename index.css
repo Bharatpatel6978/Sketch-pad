@@ -1,13 +1,40 @@
-.container {
-    /* display: grid; */
-    /* grid-template-columns: repeat(nmber, 3vw);
-    grid-template-rows: repeat(8, 3vw); */
-    /* justify-content: center;
-    align-items: center;
-    margin-left: -1rem; */
-}
-.container div
+td.tablecell
 {
-    border: 2px solid;
-    height: -webkit-fill-available;
+    border: 2px solid black;
+    padding: 1rem;
+    
+}
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.container
+{
+    display: block;
+    margin-left: 21rem;
+    width: fit-content;
+    height: fit-content;
+}
+#reset
+{
+    height: 3rem;
+    width: 9rem;
+    margin-left: 72rem;
+    font-size: 1.9rem;
+}
+#creategrid-btn
+{
+    height: 3rem;
+    width: 9rem;
+    font-size: 1.5rem;
+}
+#color
+{
+    display: block;
+    height: 3rem;
+    width: 7rem;
+    position: absolute;
+    right: 12rem;
+    top: 0rem;
 }

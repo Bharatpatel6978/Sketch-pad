@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="row">
+    <div class="row" id="hide" style="display: block;">
         <div class="col-sm-12">
             <label for="grid-row">Grid Row Size</label><br>
             <input type="number" id="grid-row"><br>
@@ -17,12 +17,16 @@
             <label for="grid-col">Grid Row Column</label><br>
             <input type="number" id="grid-col"><br><br>
         </div>
-        <div class="col-sm-12" style="text-align: center;">
-            <br><input type="button" value="Create Grid" id="creategrid-btn" onclick="Creategrid()">
+        <div class="col-sm-12" style="margin-left: 12rem;margin-top: -2rem;">
+            <br><input type="button" value="Create Grid" id="creategrid-btn" onclick="Creategrid()" >
         </div>
     </div>
-    <div class="container">
-
+    <div>
+        <input type="color" id="color" style="display: none;">
+        <input type="button" id="reset" value="Reset grid" onclick="window.location.reload()" style="display: none;">
+    </div>
+    <div class="container" id="show" style="display: none;">
+        <br><table id="table" style="border-spacing: 0rem;"></table>
     </div>
     <script src="index.js"></script>
 </body>
