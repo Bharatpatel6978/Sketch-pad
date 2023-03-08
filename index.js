@@ -8,12 +8,9 @@ let show = document.getElementById("show");
 let reset = document.getElementById("reset");
 let color = document.getElementById("color");
 let eraser = document.getElementById("eraser");
-let tablecell = document.querySelector(".tablecell");
-
-let erase = 0;
+let check = true;
 function Creategrid()
 {
-    Hide();
     container.innerHTML=" ";
     for(let i = 0;i < gridrow.value; i ++)
     {
@@ -25,55 +22,71 @@ function Creategrid()
             td.classList.add("tablecell");
             
             container.appendChild(table);
-            td.addEventListener('mouseover',function(){
-                if(erase == 0)
-                {
-                    console.log("er1");
-                    td.style.backgroundColor = color.value;
-                }
-                else
-                {
-                    console.log("er2");
-                    Er();
-                    td.style.backgroundColor = "white";
-                }
-            })
+            condition();
+        }
+    }
+    Hide();
+    Show();
+}
+
+eraser.addEventListener("click", () => {
+    if (eraser.value == "ON") {
+        check = false;
+        arrayOfColor = [];
+        let tablecell = document.querySelectorAll('.tablecell');
+        for (let erase = 0; erase < tablecell.length; erase++) {
+            tablecell[erase].addEventListener('mouseover', () => tablecell[erase].style.background = "white");
+        }
+        eraser.value = "OFF";
+    }
+    else if (eraser.value == "OFF") {
+        eraser.value = "ON";
+        check = true;
+        condition();
+    }
+});
+
+function condition() {
+    check = true;
+    if (!color == "") {
+        let tablecell = document.querySelectorAll('.tablecell');
+        for (let stat = 0; stat < tablecell.length; stat++) {
+            tablecell[stat].addEventListener('mouseover', () => { onover(tablecell, stat, check) });
         }
     }
 }
 
-function Er()
+let arrayOfColor = [];
+
+function onover(arr, num, check) {
+    if (check) {
+        if (arrayOfColor.length <= 10) {
+            arr[num].style.background = color.value;
+            arrayOfColor.push(num);
+            console.log(arrayOfColor + " Length :" + arrayOfColor.length)
+            if (arrayOfColor.length > 10) {
+                let GoOutEle = arrayOfColor.shift();
+                arr[GoOutEle].style.background = "black";
+                arr[num].style.background = color.value;
+            }
+        }
+    }
+
+}
+
+function Hide()
 {
-    if(erase == 0)
-    {
-        erase = 1;
-    }
-    else if(erase == 1)
-    { 
-        erase=1;
-    }
+    hide.style.display = "none";
 }
 
 function Show()
 {
-    show.style.display = "block";
-    reset.style.display = "block";
-    color.style.display = "block";
     eraser.style.display = "block";
+    color.style.display = "block";
+    reset.style.display = "block";
+    show.style.display = "block";
 }
-function Hide()
-{
-    if(gridrow.value == "")
-    {
-        alert("Please Enter size if row");
-    }
-    else if(gridcol.value == "")
-    {
-        alert("Please Enter size if column");
-    } 
-    else
-    {
-        hide.style.display = "none";
-        Show();
-    }
-}
+container.addEventListener("mouseleave" ,() => {
+    arrayOfColor = [];
+    console.log("out");
+});
