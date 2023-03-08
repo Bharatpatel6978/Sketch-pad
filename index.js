@@ -7,7 +7,10 @@ let hide = document.getElementById("hide");
 let show = document.getElementById("show");
 let reset = document.getElementById("reset");
 let color = document.getElementById("color");
+let eraser = document.getElementById("eraser");
+let tablecell = document.querySelector(".tablecell");
 
+let erase = 0;
 function Creategrid()
 {
     Hide();
@@ -20,10 +23,35 @@ function Creategrid()
         {
             let td = tr.insertCell(j);
             td.classList.add("tablecell");
+            
+            container.appendChild(table);
+            td.addEventListener('mouseover',function(){
+                if(erase == 0)
+                {
+                    console.log("er1");
+                    td.style.backgroundColor = color.value;
+                }
+                else
+                {
+                    console.log("er2");
+                    Er();
+                    td.style.backgroundColor = "white";
+                }
+            })
         }
-        container.appendChild(table);
     }
-    
+}
+
+function Er()
+{
+    if(erase == 0)
+    {
+        erase = 1;
+    }
+    else if(erase == 1)
+    { 
+        erase=1;
+    }
 }
 
 function Show()
@@ -31,6 +59,7 @@ function Show()
     show.style.display = "block";
     reset.style.display = "block";
     color.style.display = "block";
+    eraser.style.display = "block";
 }
 function Hide()
 {

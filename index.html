@@ -22,10 +22,12 @@
         </div>
     </div>
     <div>
-        <input type="color" id="color" style="display: none;">
+        <!-- <input type="button" id="eraser" style="display: none;" value="Eraser" onclick="Er()" > -->
+        <button id="eraser" style="display: none;" onclick="Er()" >Eraser</button>
+        <input type="color" id="color" style="display: none;" value="#1630B1">
         <input type="button" id="reset" value="Reset grid" onclick="window.location.reload()" style="display: none;">
     </div>
-    <div class="container" id="show" style="display: none;">
+    <div class="container tbs" id="show" style="display: none;">
         <br><table id="table" style="border-spacing: 0rem;"></table>
     </div>
     <script src="index.js"></script>

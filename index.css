@@ -12,16 +12,18 @@ td.tablecell
 .container
 {
     display: block;
-    margin-left: 21rem;
-    width: fit-content;
-    height: fit-content;
+    margin-left: 1rem;
+    margin-top: 9rem;
+    width: 52.8rem;
 }
 #reset
 {
     height: 3rem;
     width: 9rem;
-    margin-left: 72rem;
     font-size: 1.9rem;
+    position: absolute;
+    right: 3rem;
+    top: 0rem;
 }
 #creategrid-btn
 {
@@ -35,6 +37,19 @@ td.tablecell
     height: 3rem;
     width: 7rem;
     position: absolute;
-    right: 12rem;
+    right: 14rem;
     top: 0rem;
+}
+#eraser
+{
+    display: block;
+    height: 3rem;
+    width: 7rem;
+    position: absolute;
+    right: 24rem;
+    top: 0rem;
+    font-size: 1.5rem;
+}
+.tbs {
+    overflow-x: scroll;
 }
